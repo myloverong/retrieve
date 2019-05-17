@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaour.spring.boot.mapper.DzfpInvoiceQdMapper">
+    <resultMap id="BaseResultMap" type="com.xiaour.spring.boot.entity.DzfpInvoiceQd">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="fpdm" property="fpdm" jdbcType="CHAR"/>
+        <result column="fphm" property="fphm" jdbcType="CHAR"/>
+        <result column="wp_mc" property="wpMc" jdbcType="VARCHAR"/>
+        <result column="wp_xh" property="wpXh" jdbcType="VARCHAR"/>
+        <result column="wp_dw" property="wpDw" jdbcType="VARCHAR"/>
+        <result column="sl" property="sl" jdbcType="DECIMAL"/>
+        <result column="dj" property="dj" jdbcType="DECIMAL"/>
+        <result column="je" property="je" jdbcType="DECIMAL"/>
+        <result column="slv" property="slv" jdbcType="DECIMAL"/>
+        <result column="se" property="se" jdbcType="DECIMAL"/>
+        <result column="xf_nsrsbh" property="xfNsrsbh" jdbcType="VARCHAR"/>
+        <result column="lslbz" property="lslbz" jdbcType="VARCHAR"/>
+        <result column="yhzc" property="yhzc" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, fpdm, fphm, wp_mc, wp_xh, wp_dw, sl, dj, je, slv, se, create_date, update_date, 
+    xf_nsrsbh, gf_nsrsbh, lslbz, yhzc
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from fpcy_dzfp_invoice_qd
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fpcy_dzfp_invoice_qd
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.xiaour.spring.boot.entity.DzfpInvoiceQd">
+    insert into fpcy_dzfp_invoice_qd (id, fpdm, fphm, wp_mc, 
+      wp_xh, wp_dw, sl, dj, 
+      je, slv, se, create_date, 
+      update_date, xf_nsrsbh, gf_nsrsbh, 
+      fpqm_status, spbm, syyhzcbz, 
+      lslbz, yhzc)
+    values (#{id,jdbcType=VARCHAR}, #{fpdm,jdbcType=CHAR}, #{fphm,jdbcType=CHAR}, #{wpMc,jdbcType=VARCHAR}, 
+      #{wpXh,jdbcType=VARCHAR}, #{wpDw,jdbcType=VARCHAR}, #{sl,jdbcType=DECIMAL}, #{dj,jdbcType=DECIMAL}, 
+      #{je,jdbcType=DECIMAL}, #{slv,jdbcType=DECIMAL}, #{se,jdbcType=DECIMAL}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{xfNsrsbh,jdbcType=VARCHAR}, #{gfNsrsbh,jdbcType=VARCHAR}, 
+      #{fpqmStatus,jdbcType=VARCHAR}, #{spbm,jdbcType=VARCHAR}, #{syyhzcbz,jdbcType=VARCHAR}, 
+      #{lslbz,jdbcType=VARCHAR}, #{yhzc,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.xiaour.spring.boot.entity.DzfpInvoiceQd" useGeneratedKeys="true">
+        <selectKey keyProperty="id" order="BEFORE" resultType="String">
+            select replace(uuid(),'-','') from dual
+        </selectKey>
+        insert into fpcy_dzfp_invoice_qd
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="fpdm != null">
+                fpdm,
+            </if>
+            <if test="fphm != null">
+                fphm,
+            </if>
+            <if test="wpMc != null">
+                wp_mc,
+            </if>
+            <if test="wpXh != null">
+                wp_xh,
+            </if>
+            <if test="wpDw != null">
+                wp_dw,
+            </if>
+            <if test="sl != null">
+                sl,
+            </if>
+            <if test="dj != null">
+                dj,
+            </if>
+            <if test="je != null">
+                je,
+            </if>
+            <if test="slv != null">
+                slv,
+            </if>
+            <if test="se != null">
+                se,
+            </if>
+
+            <if test="xfNsrsbh != null">
+                xf_nsrsbh,
+            </if>
+
+            <if test="lslbz != null">
+                lslbz,
+            </if>
+            <if test="yhzc != null">
+                yhzc,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="fpdm != null">
+                #{fpdm,jdbcType=CHAR},
+            </if>
+            <if test="fphm != null">
+                #{fphm,jdbcType=CHAR},
+            </if>
+            <if test="wpMc != null">
+                #{wpMc,jdbcType=VARCHAR},
+            </if>
+            <if test="wpXh != null">
+                #{wpXh,jdbcType=VARCHAR},
+            </if>
+            <if test="wpDw != null">
+                #{wpDw,jdbcType=VARCHAR},
+            </if>
+            <if test="sl != null">
+                #{sl,jdbcType=DECIMAL},
+            </if>
+            <if test="dj != null">
+                #{dj,jdbcType=DECIMAL},
+            </if>
+            <if test="je != null">
+                #{je,jdbcType=DECIMAL},
+            </if>
+            <if test="slv != null">
+                #{slv,jdbcType=DECIMAL},
+            </if>
+            <if test="se != null">
+                #{se,jdbcType=DECIMAL},
+            </if>
+
+            <if test="xfNsrsbh != null">
+                #{xfNsrsbh,jdbcType=VARCHAR},
+            </if>
+
+            <if test="lslbz != null">
+                #{lslbz,jdbcType=VARCHAR},
+            </if>
+            <if test="yhzc != null">
+                #{yhzc,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaour.spring.boot.entity.DzfpInvoiceQd">
+        update fpcy_dzfp_invoice_qd
+        <set>
+            <if test="fpdm != null">
+                fpdm = #{fpdm,jdbcType=CHAR},
+            </if>
+            <if test="fphm != null">
+                fphm = #{fphm,jdbcType=CHAR},
+            </if>
+            <if test="wpMc != null">
+                wp_mc = #{wpMc,jdbcType=VARCHAR},
+            </if>
+            <if test="wpXh != null">
+                wp_xh = #{wpXh,jdbcType=VARCHAR},
+            </if>
+            <if test="wpDw != null">
+                wp_dw = #{wpDw,jdbcType=VARCHAR},
+            </if>
+            <if test="sl != null">
+                sl = #{sl,jdbcType=DECIMAL},
+            </if>
+            <if test="dj != null">
+                dj = #{dj,jdbcType=DECIMAL},
+            </if>
+            <if test="je != null">
+                je = #{je,jdbcType=DECIMAL},
+            </if>
+            <if test="slv != null">
+                slv = #{slv,jdbcType=DECIMAL},
+            </if>
+            <if test="se != null">
+                se = #{se,jdbcType=DECIMAL},
+            </if>
+
+            <if test="xfNsrsbh != null">
+                xf_nsrsbh = #{xfNsrsbh,jdbcType=VARCHAR},
+            </if>
+
+            <if test="lslbz != null">
+                lslbz = #{lslbz,jdbcType=VARCHAR},
+            </if>
+            <if test="yhzc != null">
+                yhzc = #{yhzc,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xiaour.spring.boot.entity.DzfpInvoiceQd">
+    update fpcy_dzfp_invoice_qd
+    set fpdm = #{fpdm,jdbcType=CHAR},
+      fphm = #{fphm,jdbcType=CHAR},
+      wp_mc = #{wpMc,jdbcType=VARCHAR},
+      wp_xh = #{wpXh,jdbcType=VARCHAR},
+      wp_dw = #{wpDw,jdbcType=VARCHAR},
+      sl = #{sl,jdbcType=DECIMAL},
+      dj = #{dj,jdbcType=DECIMAL},
+      je = #{je,jdbcType=DECIMAL},
+      slv = #{slv,jdbcType=DECIMAL},
+      se = #{se,jdbcType=DECIMAL},
+      xf_nsrsbh = #{xfNsrsbh,jdbcType=VARCHAR},
+      lslbz = #{lslbz,jdbcType=VARCHAR},
+      yhzc = #{yhzc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+    <select id="selectEntityByFpdmAndFphm" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select fpdm,fphm,wp_mc,wp_xh,wp_dw,sl,dj,je,slv,se from fpcy_dzfp_invoice_qd WHERE fpdm=#{fpdm} and fphm=#{fphm}
+
+    </select>
+</mapper>

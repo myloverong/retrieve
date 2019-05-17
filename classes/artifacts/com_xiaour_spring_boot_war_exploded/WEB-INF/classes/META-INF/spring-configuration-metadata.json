@@ -1,0 +1,11 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.xiaour.spring.boot.filter.MyFilter",
+      "name": "cacheServer",
+      "type": "com.xiaour.spring.boot.filter.MyFilter"
+    }
+  ],
+  "properties": []
+}

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaour.spring.boot.mapper.DzfpInvoiceMapper">
+    <resultMap id="BaseResultMap" type="com.xiaour.spring.boot.entity.DzfpInvoice">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="fplx" property="fplx" jdbcType="VARCHAR"/>
+        <result column="fpcc" property="fpcc" jdbcType="VARCHAR"/>
+        <result column="fp_jym" property="fpJym" jdbcType="VARCHAR"/>
+        <result column="jqbh" property="jqbh" jdbcType="VARCHAR"/>
+        <result column="fpdm" property="fpdm" jdbcType="VARCHAR"/>
+        <result column="fphm" property="fphm" jdbcType="VARCHAR"/>
+        <result column="kprq" property="kprq" jdbcType="DATE"/>
+        <result column="hjje" property="hjje" jdbcType="DECIMAL"/>
+        <result column="slv" property="slv" jdbcType="DECIMAL"/>
+        <result column="hjse" property="hjse" jdbcType="DECIMAL"/>
+        <result column="jshjxx" property="jshjxx" jdbcType="DECIMAL"/>
+        <result column="gfsh" property="gfsh" jdbcType="VARCHAR"/>
+        <result column="gfmc" property="gfmc" jdbcType="VARCHAR"/>
+        <result column="gfdz_dh" property="gfdzDh" jdbcType="VARCHAR"/>
+        <result column="gfyhmc_yhzh" property="gfyhmcYhzh" jdbcType="VARCHAR"/>
+        <result column="xfsh" property="xfsh" jdbcType="VARCHAR"/>
+        <result column="xfmc" property="xfmc" jdbcType="VARCHAR"/>
+        <result column="xfdz_dh" property="xfdzDh" jdbcType="VARCHAR"/>
+        <result column="xfyhmc_yhzh" property="xfyhmcYhzh" jdbcType="VARCHAR"/>
+        <result column="mw" property="mw" jdbcType="VARCHAR"/>
+        <result column="zfbz" property="zfbz" jdbcType="CHAR"/>
+        <result column="bz" property="bz" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, fplx, fpcc, fp_jym, jqbh, fpdm, fphm, kprq, hjje, slv, hjse, jshjxx, gfsh, gfmc, 
+    gfdz_dh, gfyhmc_yhzh, xfsh, xfmc, xfdz_dh, xfyhmc_yhzh, mw, zfbz, bz, create_time, 
+    csm_unionid
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from fpcy_dzfp_invoice
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fpcy_dzfp_invoice
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.xiaour.spring.boot.entity.DzfpInvoice">
+    insert into fpcy_dzfp_invoice (id, fplx, fpcc, 
+      fp_jym, jqbh, fpdm, 
+      fphm, kprq, hjje, slv, 
+      hjse, jshjxx, gfsh, 
+      gfmc, gfdz_dh, gfyhmc_yhzh, 
+      xfsh, xfmc, xfdz_dh, 
+      xfyhmc_yhzh, mw, zfbz, 
+      bz
+      )
+    values (#{id,jdbcType=VARCHAR}, #{fplx,jdbcType=VARCHAR}, #{fpcc,jdbcType=VARCHAR}, 
+      #{fpJym,jdbcType=VARCHAR}, #{jqbh,jdbcType=VARCHAR}, #{fpdm,jdbcType=VARCHAR}, 
+      #{fphm,jdbcType=VARCHAR}, #{kprq,jdbcType=DATE}, #{hjje,jdbcType=DECIMAL}, #{slv,jdbcType=DECIMAL}, 
+      #{hjse,jdbcType=DECIMAL}, #{jshjxx,jdbcType=DECIMAL}, #{gfsh,jdbcType=VARCHAR}, 
+      #{gfmc,jdbcType=VARCHAR}, #{gfdzDh,jdbcType=VARCHAR}, #{gfyhmcYhzh,jdbcType=VARCHAR}, 
+      #{xfsh,jdbcType=VARCHAR}, #{xfmc,jdbcType=VARCHAR}, #{xfdzDh,jdbcType=VARCHAR}, 
+      #{xfyhmcYhzh,jdbcType=VARCHAR}, #{mw,jdbcType=VARCHAR}, #{zfbz,jdbcType=CHAR}, 
+      #{bz,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.xiaour.spring.boot.entity.DzfpInvoice" useGeneratedKeys="true">
+        <selectKey keyProperty="id" order="BEFORE" resultType="String">
+            select replace(uuid(),'-','') from dual
+        </selectKey>
+
+        insert into fpcy_dzfp_invoice
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="fplx != null">
+                fplx,
+            </if>
+            <if test="fpcc != null">
+                fpcc,
+            </if>
+            <if test="fpJym != null">
+                fp_jym,
+            </if>
+            <if test="jqbh != null">
+                jqbh,
+            </if>
+            <if test="fpdm != null">
+                fpdm,
+            </if>
+            <if test="fphm != null">
+                fphm,
+            </if>
+            <if test="kprq != null">
+                kprq,
+            </if>
+            <if test="hjje != null">
+                hjje,
+            </if>
+            <if test="slv != null">
+                slv,
+            </if>
+            <if test="hjse != null">
+                hjse,
+            </if>
+            <if test="jshjxx != null">
+                jshjxx,
+            </if>
+            <if test="gfsh != null">
+                gfsh,
+            </if>
+            <if test="gfmc != null">
+                gfmc,
+            </if>
+            <if test="gfdzDh != null">
+                gfdz_dh,
+            </if>
+            <if test="gfyhmcYhzh != null">
+                gfyhmc_yhzh,
+            </if>
+            <if test="xfsh != null">
+                xfsh,
+            </if>
+            <if test="xfmc != null">
+                xfmc,
+            </if>
+            <if test="xfdzDh != null">
+                xfdz_dh,
+            </if>
+            <if test="xfyhmcYhzh != null">
+                xfyhmc_yhzh,
+            </if>
+            <if test="mw != null">
+                mw,
+            </if>
+            <if test="zfbz != null">
+                zfbz,
+            </if>
+            <if test="bz != null">
+                bz,
+            </if>
+            <if test="shy != null">
+                shy,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="fplx != null">
+                #{fplx,jdbcType=VARCHAR},
+            </if>
+            <if test="fpcc != null">
+                #{fpcc,jdbcType=VARCHAR},
+            </if>
+            <if test="fpJym != null">
+                #{fpJym,jdbcType=VARCHAR},
+            </if>
+            <if test="jqbh != null">
+                #{jqbh,jdbcType=VARCHAR},
+            </if>
+            <if test="fpdm != null">
+                #{fpdm,jdbcType=VARCHAR},
+            </if>
+            <if test="fphm != null">
+                #{fphm,jdbcType=VARCHAR},
+            </if>
+            <if test="kprq != null">
+                #{kprq,jdbcType=DATE},
+            </if>
+            <if test="hjje != null">
+                #{hjje,jdbcType=DECIMAL},
+            </if>
+            <if test="slv != null">
+                #{slv,jdbcType=DECIMAL},
+            </if>
+            <if test="hjse != null">
+                #{hjse,jdbcType=DECIMAL},
+            </if>
+            <if test="jshjxx != null">
+                #{jshjxx,jdbcType=DECIMAL},
+            </if>
+            <if test="gfsh != null">
+                #{gfsh,jdbcType=VARCHAR},
+            </if>
+            <if test="gfmc != null">
+                #{gfmc,jdbcType=VARCHAR},
+            </if>
+            <if test="gfdzDh != null">
+                #{gfdzDh,jdbcType=VARCHAR},
+            </if>
+            <if test="gfyhmcYhzh != null">
+                #{gfyhmcYhzh,jdbcType=VARCHAR},
+            </if>
+            <if test="xfsh != null">
+                #{xfsh,jdbcType=VARCHAR},
+            </if>
+            <if test="xfmc != null">
+                #{xfmc,jdbcType=VARCHAR},
+            </if>
+            <if test="xfdzDh != null">
+                #{xfdzDh,jdbcType=VARCHAR},
+            </if>
+            <if test="xfyhmcYhzh != null">
+                #{xfyhmcYhzh,jdbcType=VARCHAR},
+            </if>
+            <if test="mw != null">
+                #{mw,jdbcType=VARCHAR},
+            </if>
+            <if test="zfbz != null">
+                #{zfbz,jdbcType=CHAR},
+            </if>
+            <if test="bz != null">
+                #{bz,jdbcType=VARCHAR},
+            </if>
+            <if test="shy != null">
+                #{shy,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaour.spring.boot.entity.DzfpInvoice">
+        update fpcy_dzfp_invoice
+        <set>
+            <if test="fplx != null">
+                fplx = #{fplx,jdbcType=VARCHAR},
+            </if>
+            <if test="fpcc != null">
+                fpcc = #{fpcc,jdbcType=VARCHAR},
+            </if>
+            <if test="fpJym != null">
+                fp_jym = #{fpJym,jdbcType=VARCHAR},
+            </if>
+            <if test="jqbh != null">
+                jqbh = #{jqbh,jdbcType=VARCHAR},
+            </if>
+            <if test="fpdm != null">
+                fpdm = #{fpdm,jdbcType=VARCHAR},
+            </if>
+            <if test="fphm != null">
+                fphm = #{fphm,jdbcType=VARCHAR},
+            </if>
+            <if test="kprq != null">
+                kprq = #{kprq,jdbcType=DATE},
+            </if>
+            <if test="hjje != null">
+                hjje = #{hjje,jdbcType=DECIMAL},
+            </if>
+            <if test="slv != null">
+                slv = #{slv,jdbcType=DECIMAL},
+            </if>
+            <if test="hjse != null">
+                hjse = #{hjse,jdbcType=DECIMAL},
+            </if>
+            <if test="jshjxx != null">
+                jshjxx = #{jshjxx,jdbcType=DECIMAL},
+            </if>
+            <if test="gfsh != null">
+                gfsh = #{gfsh,jdbcType=VARCHAR},
+            </if>
+            <if test="gfmc != null">
+                gfmc = #{gfmc,jdbcType=VARCHAR},
+            </if>
+            <if test="gfdzDh != null">
+                gfdz_dh = #{gfdzDh,jdbcType=VARCHAR},
+            </if>
+            <if test="gfyhmcYhzh != null">
+                gfyhmc_yhzh = #{gfyhmcYhzh,jdbcType=VARCHAR},
+            </if>
+            <if test="xfsh != null">
+                xfsh = #{xfsh,jdbcType=VARCHAR},
+            </if>
+            <if test="xfmc != null">
+                xfmc = #{xfmc,jdbcType=VARCHAR},
+            </if>
+            <if test="xfdzDh != null">
+                xfdz_dh = #{xfdzDh,jdbcType=VARCHAR},
+            </if>
+            <if test="xfyhmcYhzh != null">
+                xfyhmc_yhzh = #{xfyhmcYhzh,jdbcType=VARCHAR},
+            </if>
+            <if test="mw != null">
+                mw = #{mw,jdbcType=VARCHAR},
+            </if>
+            <if test="zfbz != null">
+                zfbz = #{zfbz,jdbcType=CHAR},
+            </if>
+            <if test="bz != null">
+                bz = #{bz,jdbcType=VARCHAR},
+            </if>
+
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xiaour.spring.boot.entity.DzfpInvoice">
+    update fpcy_dzfp_invoice
+    set fplx = #{fplx,jdbcType=VARCHAR},
+      fpcc = #{fpcc,jdbcType=VARCHAR},
+      fp_jym = #{fpJym,jdbcType=VARCHAR},
+      jqbh = #{jqbh,jdbcType=VARCHAR},
+      fpdm = #{fpdm,jdbcType=VARCHAR},
+      fphm = #{fphm,jdbcType=VARCHAR},
+      kprq = #{kprq,jdbcType=DATE},
+      hjje = #{hjje,jdbcType=DECIMAL},
+      slv = #{slv,jdbcType=DECIMAL},
+      hjse = #{hjse,jdbcType=DECIMAL},
+      jshjxx = #{jshjxx,jdbcType=DECIMAL},
+      gfsh = #{gfsh,jdbcType=VARCHAR},
+      gfmc = #{gfmc,jdbcType=VARCHAR},
+      gfdz_dh = #{gfdzDh,jdbcType=VARCHAR},
+      gfyhmc_yhzh = #{gfyhmcYhzh,jdbcType=VARCHAR},
+      xfsh = #{xfsh,jdbcType=VARCHAR},
+      xfmc = #{xfmc,jdbcType=VARCHAR},
+      xfdz_dh = #{xfdzDh,jdbcType=VARCHAR},
+      xfyhmc_yhzh = #{xfyhmcYhzh,jdbcType=VARCHAR},
+      mw = #{mw,jdbcType=VARCHAR},
+      zfbz = #{zfbz,jdbcType=CHAR},
+      bz = #{bz,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+    <select id="selectEntityByFpdmAndFphm" resultMap="BaseResultMap"
+            parameterType="com.xiaour.spring.boot.entity.DzfpInvoice">
+  select * from fpcy_dzfp_invoice WHERE fpdm=#{fpdm} and fphm=#{fphm}
+
+</select>
+
+
+</mapper>
